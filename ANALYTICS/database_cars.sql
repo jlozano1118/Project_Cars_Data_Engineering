@@ -4,7 +4,7 @@
 
 CREATE TABLE IF NOT EXISTS dim_vehiculo (
   id_vehiculo INT PRIMARY KEY,
-  marca VARCHAR(100),
+  marca VARCHAR(100) NOT NULL,
   modelo VARCHAR(100),
   anio_fabricacion INT,
   estado_condicion VARCHAR(50),
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS dim_ubicacion (
 
 CREATE TABLE IF NOT EXISTS dim_tiempo (
   id_tiempo INT PRIMARY KEY,
-  fecha_completa DATE,
+  fecha_completa DATE NOT NULL,
   anio INT,
   mes INT,
   dia_semana VARCHAR(20),
@@ -44,15 +44,15 @@ CREATE TABLE IF NOT EXISTS dim_comercial (
 -- -----------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS fact_eventos_vehiculos (
-  id_evento INT PRIMARY KEY COMMENT 'Llave Primaria',
+  id_evento SERIAL PRIMARY KEY,
   id_vehiculo INT,
   id_tiempo INT,
   id_ubicacion INT,
   id_comercial INT,
-  precio FLOAT,
-  kilometraje FLOAT,
-  tasa_comision FLOAT,
-  comision_ganada FLOAT,
+  precio NUMERIC NOT NULL,
+  kilometraje NUMERIC,
+  tasa_comision NUMERIC,
+  comision_ganada NUMERIC,
   
   -- Definición de Relaciones (Llaves Foráneas)
   CONSTRAINT fk_fact_vehiculo 
@@ -79,3 +79,6 @@ CREATE TABLE IF NOT EXISTS fact_eventos_vehiculos (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 );
+
+-- Comentario agregado con la sintaxis correcta de PostgreSQL
+COMMENT ON COLUMN fact_eventos_vehiculos.id_evento IS 'Llave Primaria Autoincremental';
