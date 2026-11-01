@@ -34,13 +34,12 @@ Para facilitar el análisis del mercado vehicular, la capa analítica está estr
 
 El proyecto se organiza en las siguientes carpetas lógicas:
 
-```text
 Project_Cars_Data_Engineering/
-├── .venv/                   # Entorno virtual de Python
 ├── ANALYTICS/               # Scripts SQL y modelos de Data Warehousing
 │   └── database_cars.sql
 ├── RAW/                     # Zona de aterrizaje y scripts ETL
-│   └── ing_datos_proyecto.ipynb  # Motor de procesamiento en PySpark
+│   ├── car_sales_data_2018_10.csv       # Dataset transaccional (20 MB)
+│   └── ing_datos_proyecto.ipynb         # Motor de procesamiento en PySpark
 ├── STAGING/                 # Archivos intermedios limpios y persistencia Parquet
-├── README.md                # Documentación del proyecto
-└── Manuel de Programación y Código.pdf
+├── Manual de Programacion y Código.pdf  # Documentación oficial del código y pipeline
+└── README.md                # Documentación principal del repositorio
