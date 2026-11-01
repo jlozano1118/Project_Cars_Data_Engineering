@@ -43,4 +43,4 @@ Project_Cars_Data_Engineering/
 │   └── ing_datos_proyecto.ipynb  # Motor de procesamiento en PySpark
 ├── STAGING/                 # Archivos intermedios limpios y persistencia Parquet
 ├── README.md                # Documentación del proyecto
-└── Documentacion_Proyecto.pdf
+└── Manuel de Programación y Código.pdf
